@@ -1,2 +1,5 @@
-default["mysql"]["buffer_pool_size"] = "128M"
-default["mysql"]["log_file_size"] = "32M"
+default["zabbix-server"]["dbhost"] = "localhost"
+default["zabbix-server"]["dbname"] = "zabbix"
+default["zabbix-server"]["dbuser"] = "zabbix"
+default["zabbix-server"]["dbpassword"] = "zabbix"
+default["zabbix-server"]["timeout"] = "30"
