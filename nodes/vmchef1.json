@@ -4,6 +4,9 @@
   },
   "run_list":[
     "yum::epel",
+    "yum::remi",
+    "mysql",
+    "zabbix-server",
     "nginx"
   ]
 }
