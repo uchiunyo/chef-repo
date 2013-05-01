@@ -6,8 +6,7 @@
     "yum::epel",
     "yum::remi",
     "mysql",
-    "zabbix-server",
-    "nginx"
+    "zabbix-server"
   ]
 }
 
