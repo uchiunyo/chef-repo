@@ -23,7 +23,3 @@ template "nginx.conf" do
   mode 0644
   notifies :reload, 'service[nginx]'
 end
-
-service 'iptables' do
-  action [:disable, :stop]
-end

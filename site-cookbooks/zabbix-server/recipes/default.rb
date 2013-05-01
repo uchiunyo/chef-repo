@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 case node['platform']
-when "centos"
+when "centos", "amazon"
   yum_repository "zabbix" do
     if /i386|i686/ =~ node['kernel']['machine']
       url "http://repo.zabbix.com/zabbix/2.0/rhel/6/i386/"
@@ -18,7 +18,7 @@ when "centos"
   end
 end
 
-%w{zabbix-server-mysql zabbix-web-mysql}.each do |pkg|
+%w{httpd zabbix-server-mysql zabbix-web-mysql}.each do |pkg|
   package pkg do
     action :install
   end
@@ -70,10 +70,19 @@ service "zabbix-server" do
   action [:enable, :start]
 end
 
-%w{php php-bcmath php-gd php-mbstring php-mysql php-xml ipa-pgothic-fonts}.each do |pkg|
+%w{php php-bcmath php-gd php-mbstring php-mysql php-xml}.each do |pkg|
   package pkg do
     action :install
   end
 end
 
-
+case node['platform']
+when "centos"
+  package "ipa-pgothic-fonts" do
+    action :install
+  end
+when "amazon"
+  package "ipa-gothic-fonts" do
+    action :install
+  end
+end
