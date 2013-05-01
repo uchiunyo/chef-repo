@@ -1,6 +1,6 @@
-file_cache_path           "/home/uchi/hoge/test/chef-repo"
-data_bag_path             "/home/uchi/hoge/test/chef-repo/data_bags"
-encrypted_data_bag_secret "/home/uchi/hoge/test/chef-repo/data_bag_key"
-cookbook_path             [ "/home/uchi/hoge/test/chef-repo/site-cookbooks",
-                            "/home/uchi/hoge/test/chef-repo/cookbooks" ]
-role_path                 "/home/uchi/hoge/test/chef-repo/roles"
+file_cache_path           "/tmp/chef-repo"
+data_bag_path             "/tmp/chef-repo/data_bags"
+encrypted_data_bag_secret "/tmp/chef-repo/data_bag_key"
+cookbook_path             [ "/tmp/chef-repo/site-cookbooks",
+                            "/tmp/chef-repo/cookbooks" ]
+role_path                 "/tmp/chef-repo/roles"
