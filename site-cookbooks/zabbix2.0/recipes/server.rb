@@ -70,6 +70,10 @@ when "centos"
   package "ipa-pgothic-fonts" do
     action :install
   end
+  link "/usr/share/zabbix/fonts/graphfont.ttf" do
+    to "/usr/share/fonts/ipa-pgothic/ipagp.ttf"
+    link_type :symbolic
+  end
 when "amazon"
   package "ipa-gothic-fonts" do
     action :install
