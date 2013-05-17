@@ -1,3 +1,7 @@
+#my.cnf default param
+default["zabbix"]["mysql"]["buffer_pool_size"] = "128M"
+default["zabbix"]["mysql"]["log_file_size"] = "32M"
+
 #zabbix-server.conf default param
 default["zabbix"]["server"]["DebugLevel"] = 3
 default["zabbix"]["server"]["DBHost"] = "localhost"
