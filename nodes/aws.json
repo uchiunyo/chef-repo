@@ -6,8 +6,8 @@
     "common",
     "yum::epel",
     "yum::remi",
-    "mysql",
     "zabbix2.0",
+    "zabbix2.0::mysql",
     "zabbix2.0::server",
     "zabbix2.0::httpd",
     "zabbix2.0::agent"

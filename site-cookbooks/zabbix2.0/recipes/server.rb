@@ -59,12 +59,6 @@ service "zabbix-server" do
   action [:enable, :start]
 end
 
-%w{php php-bcmath php-gd php-mbstring php-mysql php-xml}.each do |pkg|
-  package pkg do
-    action :install
-  end
-end
-
 case node['platform']
 when "centos"
   package "ipa-pgothic-fonts" do
@@ -77,5 +71,9 @@ when "centos"
 when "amazon"
   package "ipa-gothic-fonts" do
     action :install
+  end
+  link "/usr/share/zabbix/fonts/graphfont.ttf" do
+    to "/usr/share/fonts/ipa-gothic/ipag.ttf"
+    link_type :symbolic
   end
 end
