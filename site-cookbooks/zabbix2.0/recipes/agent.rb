@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: zabbix-server
-# Recipe:: default
+# Cookbook Name:: zabbix2.0
+# Recipe:: agent
 #
 # Copyright 2013, YOUR_COMPANY_NAME
 #

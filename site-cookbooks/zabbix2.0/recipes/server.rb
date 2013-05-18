@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: zabbix-server
-# Recipe:: default
+# Cookbook Name:: zabbix2.0
+# Recipe:: server
 #
 # Copyright 2013, YOUR_COMPANY_NAME
 #
@@ -14,25 +14,13 @@
 end
 
 bash "importdb" do
+  not_if "/usr/bin/mysql -u#{node["zabbix"]["server"]["DBName"]} -p#{node["zabbix"]["server"]["DBPassword"]} -h #{node["zabbix"]["server"]["DBHost"]} -e 'show tables from zabbix;' | grep hosts"
   code <<-EOC
     dirname=`ls /usr/share/doc | grep zabbix-server`
-    /usr/bin/mysql -uroot zabbix < /usr/share/doc/${dirname}/create/schema.sql
-    /usr/bin/mysql -uroot zabbix < /usr/share/doc/${dirname}/create/images.sql
-    /usr/bin/mysql -uroot zabbix < /usr/share/doc/${dirname}/create/data.sql
+    /usr/bin/mysql -u#{node["zabbix"]["server"]["DBName"]} -p#{node["zabbix"]["server"]["DBPassword"]} -h #{node["zabbix"]["server"]["DBHost"]} zabbix < /usr/share/doc/${dirname}/create/schema.sql
+    /usr/bin/mysql -u#{node["zabbix"]["server"]["DBName"]} -p#{node["zabbix"]["server"]["DBPassword"]} -h #{node["zabbix"]["server"]["DBHost"]} zabbix < /usr/share/doc/${dirname}/create/images.sql
+    /usr/bin/mysql -u#{node["zabbix"]["server"]["DBName"]} -p#{node["zabbix"]["server"]["DBPassword"]} -h #{node["zabbix"]["server"]["DBHost"]} zabbix < /usr/share/doc/${dirname}/create/data.sql
   EOC
-  action :nothing
-end
-
-execute "createuser" do
-  command "/usr/bin/mysql -uroot -e \"grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';\""
-  action :nothing
-  notifies :run, resources( :bash => "importdb")
-end
-
-execute "createdb" do
-  not_if "/usr/bin/mysql -uroot -e 'show databases;' | grep zabbix"
-  command "/usr/bin/mysql -uroot -e 'create database zabbix character set utf8;'"
-  notifies :run, resources( :execute => "createuser")
 end
 
 link "/etc/zabbix/alertscripts" do

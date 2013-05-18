@@ -1,3 +1,11 @@
+#
+# Cookbook Name:: zabbix2.0
+# Recipe:: httpd
+#
+# Copyright 2013, YOUR_COMPANY_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
 template "zabbix.conf" do
   path "/etc/httpd/conf.d/zabbix.conf"
   source "zabbix.conf.erb"

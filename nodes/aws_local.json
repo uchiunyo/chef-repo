@@ -1,6 +1,11 @@
 {
-  "nginx":{
-    "port":80
+  "zabbix":{
+    "server":{
+      "DBHost":"localhost",
+      "DBName":"zabbix",
+      "DBUser":"zabbix",
+      "DBPassword":"zabbix"
+    }
   },
   "run_list":[
     "common",

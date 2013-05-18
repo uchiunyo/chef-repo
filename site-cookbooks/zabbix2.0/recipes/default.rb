@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: zabbix-server
+# Cookbook Name:: zabbix2.0
 # Recipe:: default
 #
 # Copyright 2013, YOUR_COMPANY_NAME

@@ -2,6 +2,10 @@
 default["zabbix"]["mysql"]["buffer_pool_size"] = "128M"
 default["zabbix"]["mysql"]["log_file_size"] = "32M"
 
+#rds default param
+default["zabbix"]["rds"]["MasterUsername"] = "rdsuser"
+default["zabbix"]["rds"]["MasterPassword"] = "rdspass"
+
 #zabbix-server.conf default param
 default["zabbix"]["server"]["DebugLevel"] = 3
 default["zabbix"]["server"]["DBHost"] = "localhost"
