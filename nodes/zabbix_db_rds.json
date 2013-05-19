@@ -1,0 +1,25 @@
+{
+  "zabbix":{
+    "rds":{
+      "Endpoint":"testdb.cqkn2g2m0wgp.ap-northeast-1.rds.amazonaws.com",
+      "MasterUsername":"testuser",
+      "MasterPassword":"testpass"
+    },
+    "server":{
+      "DBHost":"testdb.cqkn2g2m0wgp.ap-northeast-1.rds.amazonaws.com",
+      "DBName":"zabbix",
+      "DBUser":"zabbix",
+      "DBPassword":"zabbix"
+    }
+  },
+  "run_list":[
+    "common",
+    "yum::epel",
+    "yum::remi",
+    "zabbix2.0",
+    "zabbix2.0::rds",
+    "zabbix2.0::server",
+    "zabbix2.0::httpd",
+    "zabbix2.0::agent"
+  ]
+}
