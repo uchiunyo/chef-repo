@@ -2,12 +2,12 @@
   "zabbix":{
     "database":"rds",
     "rds":{
-      "Endpoint":"testdb.cqkn2g2m0wgp.ap-northeast-1.rds.amazonaws.com",
+      "Endpoint":"testdb.xxx.ap-northeast-1.rds.amazonaws.com",
       "MasterUsername":"testuser",
       "MasterPassword":"testpass"
     },
     "server":{
-      "DBHost":"testdb.cqkn2g2m0wgp.ap-northeast-1.rds.amazonaws.com",
+      "DBHost":"testdb.xxx.ap-northeast-1.rds.amazonaws.com",
       "DBName":"zabbix",
       "DBUser":"zabbix",
       "DBPassword":"zabbix"
